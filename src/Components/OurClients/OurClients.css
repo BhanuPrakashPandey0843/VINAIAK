@@ -1,0 +1,72 @@
+/* Container Styling */
+.our-clients {
+  width: 100%;
+  overflow: hidden; /* Prevents content overflow */
+  background: linear-gradient(to right, #f8fafc, #e0e7ff); /* Subtle gradient */
+  padding: 20px 0;
+  position: relative;
+}
+
+/* Slider */
+.slider {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  overflow: hidden;
+  position: relative;
+  width: 100%;
+}
+
+/* Scrolling track */
+.slider-track {
+  display: flex;
+  gap: 2rem;
+  animation: scroll 15s linear infinite; /* Smooth infinite scrolling */
+}
+
+/* Slide Animation */
+@keyframes scroll {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%);
+  }
+}
+
+/* Individual slide */
+.slide {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+/* Logo Styling */
+.logo {
+  max-height: 3rem;
+  transition: transform 0.3s ease, opacity 0.3s ease, filter 0.3s ease;
+  opacity: 0.8;
+  filter: grayscale(80%);
+}
+
+.logo:hover {
+  opacity: 1;
+  filter: grayscale(0%);
+  transform: scale(1.1); /* Subtle zoom effect */
+}
+
+/* Responsive Styling */
+@media (max-width: 768px) {
+  .slider-track {
+    gap: 1rem; /* Reduce gap between logos */
+  }
+  .logo {
+    max-height: 2rem; /* Smaller logos for mobile */
+  }
+}
+
+@media (min-width: 1200px) {
+  .logo {
+    max-height: 4rem; /* Larger logos for larger screens */
+  }
+}
