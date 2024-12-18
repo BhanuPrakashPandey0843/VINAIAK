@@ -24,7 +24,7 @@ const Navbar = () => {
 
           {/* Navigation Links */}
           <div className="hidden md:flex items-center space-x-8">
-            {["Home", "About Us", "Features", "Services", "Contact"].map(
+            {["Home", "About Us", "Features", "Services", "Pricing"].map(
               (item, index) => (
                 <motion.a
                   key={index}
@@ -106,7 +106,7 @@ const Navbar = () => {
           transition={{ duration: 0.5 }}
         >
           <div className="px-4 pt-4 pb-2 space-y-2">
-            {["Home", "About Us", "Features", "Services", "Contact"].map(
+            {["Home", "About Us", "Features", "Services", "Pricing" ].map(
               (item, index) => (
                 <a
                   key={index}
