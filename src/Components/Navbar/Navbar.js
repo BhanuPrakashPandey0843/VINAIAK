@@ -1,66 +1,48 @@
 import React, { useState } from "react";
-import { motion } from "framer-motion";
+import logo from "../../assets/QuizifyQuiz-removebg-preview.png"; // Import logo
 
 const Navbar = () => {
   const [menuOpen, setMenuOpen] = useState(false);
 
   return (
-    <nav className="bg-gradient-to-r from-purple-100 via-gray-100 to-pink-100 shadow-lg sticky top-0 z-50">
+    <nav className="bg-white shadow-md sticky top-0 z-50">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
         <div className="flex items-center justify-between h-16">
           {/* Logo */}
-          <motion.div
-            className="text-2xl font-bold text-purple-600"
-            initial={{ opacity: 0, x: -20 }}
-            animate={{ opacity: 1, x: 0 }}
-            transition={{ duration: 0.5 }}
-          >
-            <a href="#" className="flex items-center">
-              <span className="text-transparent bg-clip-text bg-gradient-to-r from-purple-500 to-pink-500">
-              VINAIAK
-              </span>
+          <div className="flex items-center">
+            <a href="#">
+              <img src={logo} alt="Quizify Logo" className="w-32 h-auto" />
             </a>
-          </motion.div>
+          </div>
 
           {/* Navigation Links */}
-          <div className="hidden md:flex items-center space-x-8">
-            {["Home", "About Us", "Features", "Services", "Pricing"].map(
-              (item, index) => (
-                <motion.a
-                  key={index}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="text-gray-800 hover:text-purple-600 font-medium relative group"
-                  initial={{ opacity: 0, y: -10 }}
-                  animate={{ opacity: 1, y: 0 }}
-                  transition={{ delay: 0.2 * index, duration: 0.5 }}
-                >
-                  {item}
-                  <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-gradient-to-r from-purple-500 to-pink-500 transition-all duration-300 group-hover:w-full"></span>
-                </motion.a>
-              )
-            )}
+          <div className="hidden md:flex items-center space-x-6">
+            {["Home", "Why Quizify", "About Us", "Contact Us"].map((item, index) => (
+              <a
+                key={index}
+                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="text-gray-800 hover:text-blue-500 font-medium relative group transition duration-300"
+              >
+                {item}
+                <span className="absolute left-0 bottom-0 w-0 h-0.5 bg-blue-500 transition-all duration-300 group-hover:w-full"></span>
+              </a>
+            ))}
           </div>
 
           {/* Buttons */}
           <div className="hidden md:flex items-center space-x-4">
-            <motion.a
+            <a
               href="#login"
-              className="px-4 py-2 rounded-md bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium shadow-lg hover:scale-105 transform transition"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.7, duration: 0.5 }}
+              className="text-gray-800 hover:text-blue-500 font-medium transition duration-300"
             >
               Login
-            </motion.a>
-            <motion.a
+            </a>
+            <a
               href="#signup"
-              className="px-4 py-2 rounded-md border-2 border-purple-500 text-purple-600 font-medium shadow-lg hover:bg-purple-100 hover:scale-105 transform transition"
-              initial={{ opacity: 0, y: -10 }}
-              animate={{ opacity: 1, y: 0 }}
-              transition={{ delay: 0.8, duration: 0.5 }}
+              className="px-5 py-2 rounded-full border-2 border-blue-500 text-blue-500 font-medium transition duration-300 hover:bg-blue-500 hover:text-white"
             >
               Sign Up
-            </motion.a>
+            </a>
           </div>
 
           {/* Mobile Menu Button */}
@@ -77,19 +59,9 @@ const Navbar = () => {
                 xmlns="http://www.w3.org/2000/svg"
               >
                 {menuOpen ? (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M6 18L18 6M6 6l12 12"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M6 18L18 6M6 6l12 12" />
                 ) : (
-                  <path
-                    strokeLinecap="round"
-                    strokeLinejoin="round"
-                    strokeWidth={2}
-                    d="M4 6h16M4 12h16M4 18h16"
-                  />
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6h16M4 12h16M4 18h16" />
                 )}
               </svg>
             </button>
@@ -99,40 +71,33 @@ const Navbar = () => {
 
       {/* Mobile Menu */}
       {menuOpen && (
-        <motion.div
-          className="md:hidden bg-white shadow-lg"
-          initial={{ opacity: 0, height: 0 }}
-          animate={{ opacity: 1, height: "auto" }}
-          transition={{ duration: 0.5 }}
-        >
+        <div className="md:hidden bg-white shadow-lg">
           <div className="px-4 pt-4 pb-2 space-y-2">
-            {["Home", "About Us", "Features", "Services", "Pricing" ].map(
-              (item, index) => (
-                <a
-                  key={index}
-                  href={`#${item.toLowerCase().replace(" ", "-")}`}
-                  className="block text-gray-800 hover:text-purple-600 font-medium"
-                >
-                  {item}
-                </a>
-              )
-            )}
-            <div className="flex items-center space-x-4 mt-4">
+            {["Home", "Why Quizify", "About Us", "Contact Us"].map((item, index) => (
+              <a
+                key={index}
+                href={`#${item.toLowerCase().replace(/\s+/g, "-")}`}
+                className="block text-gray-800 hover:text-blue-500 font-medium transition duration-300"
+              >
+                {item}
+              </a>
+            ))}
+            <div className="flex flex-col space-y-2 mt-4">
               <a
                 href="#login"
-                className="px-4 py-2 rounded-md bg-gradient-to-r from-orange-500 to-orange-600 text-white font-medium shadow-lg w-full text-center"
+                className="text-gray-800 text-center hover:text-blue-500 font-medium transition duration-300"
               >
                 Login
               </a>
               <a
                 href="#signup"
-                className="px-4 py-2 rounded-md border-2 border-purple-500 text-purple-600 font-medium shadow-lg w-full text-center"
+                className="px-5 py-2 rounded-full border-2 border-blue-500 text-blue-500 font-medium text-center transition duration-300 hover:bg-blue-500 hover:text-white"
               >
                 Sign Up
               </a>
             </div>
           </div>
-        </motion.div>
+        </div>
       )}
     </nav>
   );
