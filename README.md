@@ -1,4 +1,4 @@
-Vinaiak - AI-Powered Solutions for Education
+##Vinaiak - AI-Powered Solutions for Education
 
 🚀 Transforming Education with AI
 
