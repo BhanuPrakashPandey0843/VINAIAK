@@ -65,7 +65,7 @@ Before you begin, ensure you have the following installed:
 
 1️⃣ **Clone the Repository**  
 ```sh
-git clone https://github.com/your-repo/vinaiak-ai.git
+https://github.com/BhanuPrakashPandey0843/VINAIAK.git
 cd vinaiak-ai
 ```
 
